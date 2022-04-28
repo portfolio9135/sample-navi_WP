@@ -1,0 +1,36 @@
+/*================================
+【home】
+=================================*/
+/*メインビジュアル部分*/
+.topMv {
+  margin-bottom: 40px;
+  &__description {
+    max-width: 100%;
+    min-height: 50vh;
+    background-color: #41bece;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__inner {
+      padding: 48px 20px ;
+      h2 {
+        font-size: 28px;
+        line-height: 1.6;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      p {
+        line-height: 1.6;
+        color: #fff;
+        margin-bottom: 48px;
+      }
+    }
+    &__img {
+      img {
+        border-bottom: 3px solid #000;
+      }
+    }
+  }
+}

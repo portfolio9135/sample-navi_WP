@@ -1,0 +1,938 @@
+@charset "UTF-8";
+/*================================
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+
+【リセットCSS】
+=================================*/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a, button {
+  cursor: revert;
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/*================================
+【base】
+=================================*/
+body {
+  font-family: Noto Sans JP sans-serif;
+  font-family: sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/*パンくずリスト*/
+.breadCrumb {
+  background-color: #f8f8f8;
+  margin-bottom: 24px;
+}
+.breadCrumb__inner {
+  max-width: 1080px;
+  padding: 16px 20px;
+  margin: 0 auto;
+}
+.breadCrumb__list {
+  font-size: 12px;
+  color: #7e7e7e;
+}
+.breadCrumb__list--txt:hover {
+  opacity: 0.7;
+}
+
+/*ページャー部分のスタイル*/
+.pager {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 124px;
+}
+.pager__list li {
+  display: inline-block;
+  height: 33px;
+  width: 33px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 12px;
+  border-radius: 50%;
+}
+.pager__list li a {
+  display: block;
+  color: #333;
+}
+.pager__list li a:hover {
+  background-color: #41bece;
+  border-radius: 50%;
+  color: #fff;
+}
+.pager__list li:not(:last-child) {
+  margin-right: 8px;
+}
+
+.this {
+  background-color: #41bece;
+  color: #fff;
+}
+
+.current {
+  background-color: #41bece;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 33px;
+  width: 33px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 12px;
+}
+
+/*ウィジェットのリストスタイル削除*/
+.widget.widget_media_image {
+  list-style: none;
+}
+
+/*================================
+【header】
+=================================*/
+.header {
+  width: 100%;
+  background: #fff;
+}
+.header__inner {
+  text-align: center;
+  padding: 24px 20px;
+}
+.header__logo {
+  font-size: 24px;
+  color: #41bece;
+  font-weight: bold;
+}
+.header__navPc {
+  display: none;
+}
+
+/*スクロール後のヘッダー部分*/
+.is-fixed {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 2px 5px #ccc;
+}
+
+/*================================
+【header_ハンバーガーメニュー】
+=================================*/
+/*3本線ハのンバーガーメニューの形を作る*/
+.hmMenuIcon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.hmMenuIcon span {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background-color: #666;
+  transition: 0.5s;
+}
+
+.hmMenuIcon span:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/*ハンバーガーメニュークリック後に3本線をXにする*/
+.hmMenuIcon.clickOpen span {
+  position: absolute;
+  top: 12px;
+  margin-bottom: 0;
+}
+.hmMenuIcon.clickOpen span:first-child {
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+.hmMenuIcon.clickOpen span:nth-child(2) {
+  display: none;
+}
+.hmMenuIcon.clickOpen span:last-child {
+  transform: rotate(-45deg);
+  transition: 0.5s;
+}
+
+/*ハンバーガーメニュークリック後に引き出されるメニューを作る*/
+.header__nav {
+  position: fixed;
+  top: 64px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.9;
+  left: -100%;
+  transition: left 0.5s;
+  margin-bottom: 600px;
+  padding-top: 32px;
+}
+.header__nav__list {
+  text-align: left;
+  padding-left: 16px;
+  font-weight: bold;
+}
+.header__nav__list li:not(last-of-type) {
+  margin-bottom: 32px;
+}
+.header__nav__list li a {
+  display: block;
+}
+.header__nav__list li a:hover {
+  color: #41bece;
+}
+
+.header__nav.pullTheDrawer {
+  left: 0;
+}
+
+/*ハンバーガーメニュークリック後にスクロールを停止させる*/
+.moveScroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+/*================================
+【footer】
+=================================*/
+.footer__inner {
+  background-color: #eee;
+}
+.footer__img {
+  max-width: 1080px;
+  padding: 64px 20px 64px 20px;
+}
+.footer__img__list li:not(:last-child) {
+  margin-bottom: 24px;
+}
+.footer__img__list a:hover {
+  opacity: 0.7;
+}
+.footer__img img {
+  width: 100%;
+  border: 5px solid #666;
+}
+.footer__info {
+  background-color: #41bece;
+  padding: 64px 20px 64px 20px;
+  text-align: center;
+  color: #fff;
+}
+.footer__info__list {
+  margin-bottom: 48px;
+}
+.footer__info__list li {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 24px;
+}
+.footer__info__list a:hover {
+  color: #ff6b1d;
+}
+
+/*================================
+【mainContents】
+=================================*/
+/*メインコンテンツ部分*/
+.mainContents {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 12px;
+  max-width: 1080px;
+  margin-bottom: 32px;
+}
+.mainContents__ttlTxtBlock {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.mainContents__ttlTxtBlock--ttl {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.mainContents__ttlTxtBlock--ttl::after {
+  display: block;
+  margin: 0 auto;
+  margin-top: 16px;
+  content: "";
+  border: 2px solid #41bece;
+  width: 50%;
+}
+.mainContents__ttlTxtBlock--txt {
+  font-weight: bold;
+}
+.mainContents__card {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 24px;
+  padding-bottom: 40px;
+}
+.mainContents__card__img:hover {
+  opacity: 0.7;
+}
+.mainContents__card img {
+  width: 100%;
+  height: auto;
+}
+.mainContents__card__info {
+  text-align: left;
+}
+.mainContents__card__info__date {
+  font-size: 14px;
+  color: #797979;
+}
+.mainContents__card__info__ttl {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.mainContents__card__info__ttl:hover {
+  opacity: 0.7;
+}
+.mainContents__card__info__author {
+  margin-bottom: 8px;
+}
+.mainContents__card__info__tag {
+  display: flex;
+  margin-bottom: 8px;
+}
+.mainContents__card__info__tag li {
+  border: 1px solid #ff6b1d;
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #ff6b1d;
+}
+.mainContents__card__info__tag li:not(:last-of-type) {
+  margin-right: 8px;
+}
+.mainContents__card__info__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.mainContents__card__info__list li {
+  text-align: center;
+  padding: 0 10px;
+  border-left: 3px solid #ff6b1d;
+}
+.mainContents__card__info__list li:last-child {
+  border-right: 3px solid #ff6b1d;
+}
+.mainContents__card__info__excerpt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mainContents__btn {
+  margin-top: 48px;
+  margin-bottom: 64px;
+}
+.mainContents__btn button a {
+  border: 2px solid #000;
+  border-radius: 40px;
+  padding: 16px 80px;
+  font-weight: bold;
+}
+.mainContents__btn button a:hover {
+  background-color: #41bece;
+  border: none;
+  color: #fff;
+  transition: 0.2s;
+}
+
+/*================================
+【singleContents】
+=================================*/
+.singleContents {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.singleContents__ttl {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  border-top: 2px solid #41bece;
+  border-bottom: 2px solid #41bece;
+}
+.singleContents__ttl h2 {
+  margin: 4px 0;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+}
+.singleContents__tag {
+  margin-bottom: 32px;
+}
+.singleContents__tag__list {
+  display: flex;
+}
+.singleContents__tag__list li {
+  color: #ff6b1d;
+  font-size: 12px;
+  border: 1px solid #ff6b1d;
+  border-radius: 20px;
+  padding: 0 8px;
+}
+.singleContents__tag__list li:not(:last-child) {
+  margin-right: 4px;
+}
+.singleContents__main__img {
+  margin-bottom: 32px;
+}
+.singleContents__main__img img {
+  width: 100%;
+}
+.singleContents__main__info {
+  border-top: 3px solid #ff6b1d;
+  margin-bottom: 32px;
+}
+.singleContents__main__info__list {
+  margin-bottom: 48px;
+}
+.singleContents__main__info__list li {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px dashed #ccc;
+}
+.singleContents__main__info__list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.singleContents__main__info__list li:first-child {
+  font-weight: bold;
+  color: #ff6b1d;
+}
+.singleContents__main__info__list__value {
+  font-weight: 400;
+}
+.singleContents__main__info__list__label {
+  color: #000;
+}
+.singleContents__main__info__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.singleContents__main__info__btn button a {
+  display: block;
+  width: 280px;
+  padding: 8px 0;
+  background-color: #41bece;
+  color: #fff;
+  text-align: center;
+}
+.singleContents__main__info__btn button a:hover {
+  opacity: 0.8;
+}
+.singleContents__main__info__btn button:not(:last-child) {
+  margin-bottom: 8px;
+}
+.singleContents__table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.singleContents__table table {
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 48px;
+  font-size: 14px;
+}
+.singleContents__table table tbody tr {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.singleContents__table table tbody tr td {
+  padding: 24px 16px 24px 8px;
+}
+.singleContents__table table tbody tr td:first-child {
+  font-weight: bold;
+  width: 30%;
+  border-right: 1px solid #ccc;
+  background-color: #ecf9fa;
+}
+.singleContents__table__btn {
+  margin-bottom: 48px;
+}
+.singleContents__table__btn button a {
+  display: block;
+  width: 280px;
+  padding: 8px 0;
+  background-color: #41bece;
+  border-radius: 32px;
+  color: #fff;
+  text-align: center;
+}
+.singleContents__table__btn button a:hover {
+  opacity: 0.8;
+}
+
+.mySwiper2 {
+  margin-bottom: 24px;
+}
+.mySwiper2 img:hover {
+  cursor: grab;
+}
+.mySwiper2 img:active {
+  cursor: grabbing;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: #fff;
+  text-shadow: 1px 2px 2px #666;
+}
+
+.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right {
+  font-size: 30px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  display: none;
+}
+
+.swiper.mySwiper {
+  display: none;
+}
+
+/*================================
+【home】
+=================================*/
+/*メインビジュアル部分*/
+.topMv {
+  margin-bottom: 40px;
+}
+.topMv__description {
+  max-width: 100%;
+  min-height: 50vh;
+  background-color: #41bece;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.topMv__description__inner {
+  padding: 48px 20px;
+}
+.topMv__description__inner h2 {
+  font-size: 28px;
+  line-height: 1.6;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.topMv__description__inner p {
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 48px;
+}
+.topMv__description__img img {
+  border-bottom: 3px solid #000;
+}
+
+/*================================
+【contact】
+=================================*/
+.contact {
+  background-color: #ecf9fa;
+  max-width: 800px;
+  margin: 32px auto;
+}
+.contact__inner {
+  padding: 20px 20px 64px 20px;
+}
+.contact__form label {
+  font-size: 18px;
+}
+.contact__form__fBox {
+  margin-bottom: 24px;
+}
+.contact__form__item {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  width: 100%;
+}
+.contact__form__btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 8px 0px;
+  border: 2px solid #000;
+  border-radius: 50px;
+  font-size: 20px;
+}
+.contact__form__btn:hover {
+  cursor: pointer;
+  border: 2px solid #41bece;
+  color: #fff;
+  background-color: #41bece;
+}
+
+::placeholder {
+  color: #ced4da;
+}
+
+.is-active {
+  border: 2px solid #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/*================================
+【privacyPolicy】
+=================================*/
+.privacyPolicy {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/*================================
+【siteMap】
+=================================*/
+.siteMap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+/*================================
+【responsive_タブレット用】
+=================================*/
+/* 管理バー下に */
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+@media screen and (min-width: 600px) {
+  /*ハンバーガーメニュー部分*/
+  .header__nav {
+    width: 50%;
+  }
+
+  /*メインビジュアル部分*/
+  .topMv__description__inner {
+    width: 50%;
+    padding: 48px 0px 24px 0px;
+  }
+
+  /*メインコンテンツ部分*/
+  .mainContents__card {
+    display: flex;
+  }
+  .mainContents__card__img {
+    width: 50%;
+    margin-right: 20px;
+  }
+  .mainContents__card__info {
+    width: 50%;
+  }
+  .mainContents__card__info__list {
+    justify-content: start;
+  }
+
+  /*フッター部分*/
+  .footer__img {
+    margin: 0 auto;
+  }
+  .footer__img__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__img__list li:not(:last-child) {
+    margin-bottom: 0px;
+    margin-right: 16px;
+  }
+  .footer__info__list {
+    display: flex;
+    justify-content: center;
+  }
+  .footer__info__list li {
+    padding: 0 24px;
+    border-bottom: none;
+    border-right: 1px solid #ccc;
+  }
+  .footer__info__list li:first-child {
+    padding-left: 0;
+  }
+
+  /*シングルコンテンツ部分*/
+  .singleContents {
+    padding: 0 100px;
+  }
+  .singleContents__main {
+    position: relative;
+  }
+  .singleContents__main__info__btn button a {
+    width: 400px;
+  }
+  .singleContents__table__btn button a {
+    width: 400px;
+  }
+
+  /*シングルコンテンツ__スライダー部分*/
+  .mySwiper {
+    display: block;
+    height: 70px;
+  }
+
+  /*お問い合わせフォーム部分*/
+}
+@media screen and (min-width: 600px) and (min-width: 850px) {
+  .mySwiper {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .swiper-button-prev {
+    display: block;
+    margin-top: 500px;
+    position: absolute;
+    top: 5px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .imgFrame {
+    border: 2px solid #dfdfdf;
+  }
+  .imgFrame img {
+    border: 3px solid #eee;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .imgFrame:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .mySwiper.swiper {
+    padding: 0 40px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .mySwiper .swiper-slide:hover {
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 600px) {
+  .mySwiper .swiper-slide-thumb-active {
+    border: 2px solid #ff6b1d;
+  }
+}
+@media screen and (min-width: 600px) {
+  .swiper.mySwiper {
+    display: block;
+  }
+}
+@media screen and (min-width: 600px) {
+  .contact {
+    margin: 80px auto;
+  }
+  .contact__inner {
+    padding: 64px 64px 96px 64px;
+  }
+  .contact__form__fBox {
+    display: flex;
+  }
+  .contact__form__fBox label {
+    width: 30%;
+  }
+  .contact__form__btn {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+/*================================
+【responsive_PC用】
+=================================*/
+@media screen and (min-width: 1104px) {
+  /*ヘッダー部分*/
+  .header__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .header__logo {
+    font-size: 28px;
+    margin-left: 16px;
+  }
+  .header__navPc {
+    display: block;
+    margin-left: auto;
+  }
+  .header__navPc__list {
+    display: flex;
+  }
+  .header__navPc__list li:not(:last-child) {
+    margin-right: 24px;
+  }
+  .header__navPc__list a:hover {
+    color: #41bece;
+  }
+  .header__nav {
+    width: 20%;
+  }
+
+  /*ハンバーガーメニュー部分*/
+  .hmMenuIcon {
+    position: initial;
+    cursor: pointer;
+  }
+  .hmMenuIcon span {
+    width: 28px;
+    height: 2px;
+  }
+  .hmMenuIcon span:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  .hmMenuIcon.clickOpen span {
+    position: inherit;
+    margin-bottom: -1px;
+  }
+
+  /*メインビジュアル部分*/
+  .topMv__description__inner {
+    width: 50%;
+    padding: 48px 0px 24px 0px;
+  }
+  .topMv__description__info h2 {
+    font-size: 32px;
+  }
+
+  /*メインコンテンツ部分*/
+  .mainContents__card {
+    display: flex;
+  }
+  .mainContents__card__img {
+    width: 50%;
+    margin-right: 20px;
+  }
+  .mainContents__card__info {
+    width: 50%;
+  }
+  .mainContents__card__info__ttl {
+    font-size: 28px;
+  }
+  .mainContents__card__info__list li p {
+    font-size: 20px;
+  }
+
+  /*フッター部分*/
+  .footer__img {
+    margin: 0 auto;
+  }
+  .footer__img__list {
+    display: flex;
+  }
+  .footer__img__list li:not(:last-child) {
+    margin-bottom: 0px;
+    margin-right: 16px;
+  }
+  .footer__info__list {
+    display: flex;
+    justify-content: center;
+  }
+  .footer__info__list li {
+    padding: 0 24px;
+    border-bottom: none;
+    border-right: 1px solid #ccc;
+  }
+  .footer__info__list li:first-child {
+    padding-left: 0;
+  }
+
+  /*シングルコンテンツ部分*/
+  .singleContents {
+    padding: 0px;
+  }
+  .singleContents__ttl {
+    font-size: 24px;
+  }
+  .singleContents__main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  .singleContents__main__img {
+    width: 60%;
+    margin-right: 32px;
+  }
+  .singleContents__main__info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+  .singleContents__main__btn button a {
+    width: 400px;
+  }
+  .singleContents__table table {
+    font-size: 18px;
+  }
+  .singleContents__table__btn button a {
+    width: 400px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

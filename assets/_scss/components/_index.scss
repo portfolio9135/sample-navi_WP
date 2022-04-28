@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@use 'reset';
+@use 'base';
+@use 'header';
+@use 'footer';
+@use 'mainContents';
+@use 'singleContents';
+
+@use '../pages/home';
+@use '../pages/contact';
+@use '../pages/privacyPolicy';
+@use '../pages/siteMap';
+
+@use 'responsive';

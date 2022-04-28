@@ -1,0 +1,101 @@
+/*================================
+【header】
+=================================*/
+.header {
+  width: 100%;
+  background: #fff;
+  &__inner {
+    text-align: center;
+    padding: 24px 20px;
+  }
+  &__logo {
+    font-size: 24px;
+    color: #41bece;
+    font-weight: bold;
+  }
+  &__navPc {
+    display: none;
+  }
+}
+/*スクロール後のヘッダー部分*/
+.is-fixed {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 2px 5px #ccc;
+}
+
+/*================================
+【header_ハンバーガーメニュー】
+=================================*/
+/*3本線ハのンバーガーメニューの形を作る*/
+.hmMenuIcon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+.hmMenuIcon span {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background-color: #666;
+  transition: 0.5s;
+}
+.hmMenuIcon span:not(:last-child) {
+  margin-bottom: 8px;
+}
+/*ハンバーガーメニュークリック後に3本線をXにする*/
+.hmMenuIcon.clickOpen {
+  span {
+    position: absolute;
+    top: 12px;
+    margin-bottom: 0;
+  }
+  span:first-child {
+    transform: rotate(45deg);
+    transition: 0.5s;
+  }
+  span:nth-child(2) {
+    display: none;
+  }
+  span:last-child {
+    transform: rotate(-45deg);
+    transition: 0.5s;
+  }
+}
+/*ハンバーガーメニュークリック後に引き出されるメニューを作る*/
+.header__nav {
+  position: fixed;
+  top: 64px;
+  width: 100%;
+  height: calc(100%);
+  background: #fff;
+  opacity: 0.9;
+  left: -100%;
+  transition: left 0.5s;
+  margin-bottom: 600px;
+  padding-top: 32px;
+  &__list {
+    text-align: left;
+    padding-left: 16px;
+    font-weight: bold;
+    li:not(last-of-type) {
+      margin-bottom: 32px;
+    }
+    li a {
+      display: block;
+    }
+    li a:hover{
+      color: #41bece;
+    }
+  }
+}
+.header__nav.pullTheDrawer {
+  left: 0;
+}
+/*ハンバーガーメニュークリック後にスクロールを停止させる*/
+.moveScroll {
+  height: 100%;
+  overflow: hidden;
+}

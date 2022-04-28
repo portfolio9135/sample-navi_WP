@@ -1,0 +1,331 @@
+@use "base" as b;
+/*================================
+【responsive_タブレット用】
+=================================*/
+/* 管理バー下に */
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+
+
+
+@media screen and (min-width: 600px) {
+  /*ハンバーガーメニュー部分*/
+  .header {
+    &__nav {
+      width: 50%;
+    }
+  }
+
+  /*メインビジュアル部分*/
+  .topMv {
+    &__description {
+      &__inner {
+        width: 50%;
+        padding: 48px 0px 24px 0px;
+      }
+    }
+  }
+
+  /*メインコンテンツ部分*/
+  .mainContents {
+    &__card {
+      display: flex;
+      &__img {
+        width: 50%;
+        margin-right: 20px;
+      }
+      &__info {
+        width: 50%;
+        &__list {
+          justify-content: start;
+        }
+      }
+    }
+  }
+
+  /*フッター部分*/
+  .footer {
+    &__img {
+      margin: 0 auto;
+      &__list {
+        display: flex;
+        justify-content: space-between;
+        li:not(:last-child) {
+          margin-bottom: 0px;
+          margin-right: 16px;
+        }
+      }
+    }
+    &__info {
+      &__list {
+        display: flex;
+        justify-content: center;
+        li {
+          padding: 0 24px;
+          border-bottom: none;
+          border-right: 1px solid #ccc;
+        }
+        li:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  /*シングルコンテンツ部分*/
+  .singleContents {
+    padding: 0 100px;
+    &__main {
+      position: relative;
+      &__info {
+        &__btn {
+          button {
+            a {
+              width: 400px;
+            }
+          }
+        }
+      }
+    }
+    &__table {
+      &__btn {
+        button {
+          a {
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+  /*シングルコンテンツ__スライダー部分*/
+  .mySwiper {
+    display: block;
+    height: 70px;
+  }
+  @media screen and (min-width: 850px) {
+    .mySwiper {
+      height: 100px;
+    }
+  }
+  .swiper-button-prev {
+    display: block;
+    margin-top: 500px;
+    position: absolute;
+    top: 5px;
+  }
+  .imgFrame {
+    border: 2px solid #dfdfdf;
+    img {
+      border: 3px solid #eee;
+      height: 100%;
+    }
+  }
+  .imgFrame:not(:last-child) {
+    margin-right: 8px;
+  }
+  .mySwiper.swiper {
+    padding: 0 40px;
+  }
+  .mySwiper .swiper-slide:hover {
+    cursor: pointer;
+  }
+  .mySwiper .swiper-slide-thumb-active {
+    border: 2px solid b.$color_secondary;
+  }
+  .swiper.mySwiper {
+    display: block;
+  }
+
+  /*お問い合わせフォーム部分*/
+  .contact {
+    margin: 80px auto;
+    &__inner {
+      padding: 64px 64px 96px 64px;
+    }
+    &__form {
+      &__fBox {
+        display: flex;
+        label {
+          width: 30%;
+        }
+      }
+      &__btn {
+        margin-top: 32px;
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
+
+}
+/*================================
+【responsive_PC用】
+=================================*/
+@media screen and (min-width: 1104px) {
+  /*ヘッダー部分*/
+  .header {
+    &__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    &__logo {
+      font-size: 28px;
+      margin-left: 16px;
+    }
+    &__navPc {
+      display: block;
+      margin-left: auto;
+      &__list {
+        display: flex;
+        li:not(:last-child) {
+          margin-right: 24px;
+        }
+        a:hover {
+          color: #41bece;
+        }
+      }
+    }
+    &__nav {
+      width: 20%;
+    }
+  }
+
+  /*ハンバーガーメニュー部分*/
+  .hmMenuIcon {
+    position: initial;
+    cursor: pointer;
+    span {
+      width: 28px;
+      height: 2px;
+    }
+    span:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  .hmMenuIcon.clickOpen {
+    span {
+      position: inherit;
+      margin-bottom: -1px;
+    }
+  }
+
+  /*メインビジュアル部分*/
+  .topMv {
+    &__description {
+      &__inner {
+        width: 50%;
+        padding: 48px 0px 24px 0px;
+      }
+      &__info {
+        h2 {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  /*メインコンテンツ部分*/
+  .mainContents {
+    &__card {
+      display: flex;
+      &__img {
+        width: 50%;
+        margin-right: 20px;
+      }
+      &__info {
+        width: 50%;
+        &__ttl {
+          font-size: 28px;
+        }
+        &__list {
+          li {
+            p {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*フッター部分*/
+  .footer {
+    &__img {
+      margin: 0 auto;
+      &__list {
+        display: flex;
+        li:not(:last-child) {
+          margin-bottom: 0px;
+          margin-right: 16px;
+        }
+      }
+    }
+    &__info {
+      &__list {
+        display: flex;
+        justify-content: center;
+        li {
+          padding: 0 24px;
+          border-bottom: none;
+          border-right: 1px solid #ccc;
+        }
+        li:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  /*シングルコンテンツ部分*/
+  .singleContents {
+    padding: 0px;
+    &__ttl {
+      font-size: 24px;
+    }
+    &__main {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      &__img {
+        width: 60%;
+        margin-right: 32px;
+      }
+      &__info {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+      }
+      &__btn {
+        button {
+          a {
+            width: 400px;
+          }
+        }
+      }
+    }
+    &__table {
+      table {
+        font-size: 18px;
+      }
+      &__btn {
+        button {
+          a {
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+
+
+
+}

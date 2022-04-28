@@ -1,0 +1,175 @@
+@use "base" as b;
+/*================================
+【singleContents】
+=================================*/
+.singleContents {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  &__ttl {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 64px;
+    margin-bottom: 16px;
+    border-top: 2px solid b.$color_primary;
+    border-bottom: 2px solid b.$color_primary;
+    h2 {
+      margin: 4px 0;
+      border-top: 2px solid #eee;
+      border-bottom: 2px solid #eee;
+    }
+  }
+
+  &__tag {
+    margin-bottom: 32px;
+    &__list {
+      display: flex;
+      li {
+        color: b.$color_secondary;
+        font-size: 12px;
+        border: 1px solid b.$color_secondary;
+        border-radius: 20px;
+        padding: 0 8px;
+      }
+      li:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &__main {
+    &__img {
+      margin-bottom: 32px;
+      img {
+        width: 100%;
+      }
+    }
+    &__info {
+      border-top: 3px solid b.$color_secondary;
+      margin-bottom: 32px;
+      &__list {
+        margin-bottom: 48px;
+        li {
+          font-size: 18px;
+          display: flex;
+          justify-content: space-between;
+          padding: 24px 0;
+          border-bottom: 1px dashed #ccc;
+        }
+        li:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        li:first-child {
+          font-weight: bold;
+          color: b.$color_secondary;
+        }
+        &__value {
+          font-weight: 400;
+        }
+        &__label {
+          color: #000;
+        }
+      }
+      &__btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        button {
+          a {
+            display: block;
+            width: 280px;
+            padding: 8px 0;
+            background-color: b.$color_primary;
+            color: #fff;
+            text-align: center;
+          }
+          a:hover {
+            opacity: 0.8;
+          }
+        }
+        button:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    table {
+      width: 100%;
+      border: 1px solid #ccc;
+      margin-bottom: 48px;
+      font-size: 14px;
+      tbody {
+        tr {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #ccc;
+          td {
+            padding: 24px 16px 24px 8px;
+          }
+          td:first-child {
+            font-weight: bold;
+            width: 30%;
+            border-right: 1px solid #ccc;
+            background-color: #ecf9fa;
+          }
+        }
+      }
+    }
+    &__btn {
+      margin-bottom: 48px;
+      button {
+        a {
+          display: block;
+          width: 280px;
+          padding: 8px 0;
+          background-color: b.$color_primary;
+          border-radius: 32px;
+          color: #fff;
+          text-align: center;
+        }
+        a:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+//スライダーの実装
+.mySwiper2 {
+  margin-bottom: 24px;
+  img:hover {
+    cursor: grab;
+  }
+  img:active {
+    cursor: grabbing;
+  }
+}
+
+//スライダーの矢印の色をカスタマイズ
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: #fff;
+  text-shadow: 1px 2px 2px #666;
+}
+.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right {
+  font-size: 30px;
+}
+
+//標準の矢印を非表示
+.swiper-button-next:after, .swiper-button-prev:after {
+  display: none
+}
+
+//サムネイルを非表示
+.swiper.mySwiper {
+  display: none;
+}

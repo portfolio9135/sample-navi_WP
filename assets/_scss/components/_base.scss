@@ -1,0 +1,81 @@
+$color_primary: #41bece;
+$color_secondary: #ff6b1d;
+/*================================
+【base】
+=================================*/
+body {
+  font-family: Noto Sans JP sans-serif;
+  font-family: sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/*パンくずリスト*/
+.breadCrumb {
+  background-color: #f8f8f8;
+  margin-bottom: 24px;
+  &__inner {
+    max-width: 1080px;
+    padding: 16px 20px;
+    margin: 0 auto;
+  }
+  &__list {
+    font-size: 12px;
+    color: #7e7e7e;
+    &--txt:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/*ページャー部分のスタイル*/
+.pager {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 124px;
+  &__list {
+    li {
+      display: inline-block;
+      height: 33px;
+      width: 33px;
+      text-align: center;
+      line-height: 33px;
+      font-size: 12px;
+      border-radius: 50%;
+      a {
+        display: block;
+        color: #333;
+      }
+      a:hover {
+        background-color: $color_primary;
+        border-radius: 50%;
+        color: #fff;
+      }
+    }
+    li:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.this {
+  background-color: $color_primary;
+  color: #fff;
+}
+.current {
+  background-color: $color_primary;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 33px;
+  width: 33px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 12px;
+}
+
+/*ウィジェットのリストスタイル削除*/
+.widget.widget_media_image {
+  list-style: none;
+}
